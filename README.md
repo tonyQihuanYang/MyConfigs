@@ -15,5 +15,15 @@ cp -r  ~/.config/nvim nvim
 - In your new machine, create the symlink from current directory to your config directory
 
 ```bash
-ln -s nvim ~/.config/nvim
+pwd
+ln -s <currentRepoPath>/nvim ~/.config/nvim
+ln -s <currentRepoPath>/.ideavimrc ~/.ideavimrc
 ```
+
+### Ideavim (For Intellij)
+
+#### Plugins to install on Intellij
+
+- IdeaVim
+- Which-Key
+- IdeaVim-Quickscope

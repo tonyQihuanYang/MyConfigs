@@ -1,0 +1,60 @@
+""" RootDoc: https://github.com/JetBrains/ideavim
+""" Reference: https://goudham.me/my-second-brain/my-ideavim-config.html
+
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Vim Options
+set number
+set relativenumber
+set incsearch "Do incremental searching.
+" Suggested config for IdeaVim
+set scrolloff=5
+set visualbell "No annoying sound on errors
+"map Q gq "Don't use Ex mode, use Q for formatting.
+
+
+""" Intellij Actions
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+map \p <Action>(PinActiveTab)
+map \k <Action>(ShowErrorDescription)
+" Intellij Goto Actions
+map \gt <Action>(GotoTest)
+" Terminal
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+""" Searching
+map <leader>sf <Action>(Find)
+map <leader>sF <Action>(FindInPath)
+map <leader>sp <action>(GotoFile) "fzf
+" NerdTree search current file
+nnoremap <leader>sn :NERDTreeFind<CR>
+
+""" LSP stuffs
+map <leader>lp <Action>(ReformatCode)
+
+""" Plugins  --------------------------------
+set NERDTree
+set commentary
+set surround
+set which-key "Required to install the Plugin in Intellij
+set quickscope "Required to install the Plugin in Intellij
+
+
+""" Plugins Configs ------------------------
+""" which-key
+" Set the timeout, ref: https://github.com/TheBlob42/idea-which-key
+set notimeout
+set timeoutlen=5000
+let g:WhichKey_ShowVimActions="true"
+
+""" NerdTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>b :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
+let NERDTreeWinSize=40
+
+""" quickscope
+let g:qs_highlight_on_keys = ['f', 'F'] " Trigger a highlight only when pressing f and F.
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '{', '}', '[', ']', '<', '>']
