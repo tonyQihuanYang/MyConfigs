@@ -26,6 +26,7 @@ Plug 'sheerun/vim-polyglot' " syntax highlight
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/airblade/vim-gitgutter' " Gitgutter highlight changed lines in flle
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown preview
 
 call plug#end()
 
