@@ -22,7 +22,20 @@ map \k <Action>(ShowErrorDescription)
 " Intellij Goto Actions
 map \gt <Action>(GotoTest)
 " Terminal
-map <leader>t <Action>(ActivateTerminalToolWindow)
+map \t <Action>(ActivateTerminalToolWindow)
+
+
+" Debug
+map <leader>dr <Action>(ContextRun)
+map <leader>dd <Action>(ContextDebug)
+map <leader>ds <Action>(StepOut)
+map <leader>dq <Action>(HideActiveWindow)
+" map <leader>dc <Action>(RunClass) "Looks like do nothing
+
+" Close content
+" map <leader>q <Action>(CloseContent)
+" map <leader>Q <Action>(CloseAllEditors)
+" map <leader>h <Action>(HideAllWindows)
 
 """ Searching
 map <leader>sf <Action>(Find)
