@@ -10,6 +10,15 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
+-- Terraform
+-- brew install terraform-ls
+lspconfig['terraformls'].setup{}
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--   pattern = {"*.tf", "*.tfvars"},
+--   callback = vim.lsp.buf.format(),
+-- })
+-- End Terraform
+
 -- lspconfig['dartls'].setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities,
