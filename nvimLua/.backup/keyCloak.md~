@@ -1,0 +1,83 @@
+# WHY
+
+# WHAT
+
+# HOW
+
+## Create courier
+
+## Migraete Coueriers from credential management to KeyCloak
+
+### Skip (Courier)
+
+api_courier_management (Proxy main - handle the Auth)
+courier_app_management
+
+- [x] [https://bitbucket.org/skipthedishes/service_keycloak_tf/src/master/](<https://justeattakeaway.atlassian.net/browse/CPI-578?jql=project%20in%20(CPI%2C%20SCHEDULING)%20AND%20text%20~%20keycloak>)
+  - create the KeyCloak as ecs-service <!-- - Desktop as a Service (DaaS)
+    is a cloud computing offering where a service provider delivers
+    virtual desktops to end users over the Internet, licensed with
+    a per-user subscription. -->
+- [x] [appgroup_credential_management_tf](https://bitbucket.org/skipthedishes/%7B579001cf-78c9-4a9d-a093-1cdf2a1461fa%7D/pull-requests/25)
+  - create new routes in api-gate-way such as `/realms/Courier/xxx`
+- [ ] [service_api_courier_tf]()
+- [ ] [api_courier]
+- [ ] keycloak_openid_client
+- [ ] [java_base_lib_spark](https://bitbucket.org/skipthedishes/java_base_lib_spark/pull-requests/29/cpi-86-ignore-apptoken-headers)
+
+### Work have been done
+
+- Creating DaaS for KeyCloak
+
+# !
+
+- [Parent ticket](<https://justeattakeaway.atlassian.net/browse/CPI-132?jql=project%20in%20(CPI%2C%20SCHEDULING)%20AND%20text%20~%20keycloak>)
+- [WHERE TO TRACK WHAT HAVE BEEN DONE](https://justeattakeaway.atlassian.net/wiki/spaces/AR/pages/2410807402/Canadian+Principal+Team)
+
+- resutraant management
+  delivery-service
+
+
+- ResetKeycloakYserServuce from [restuarant_management](https://bitbucket.org/skipthedishes/restaurant_management/src/dd29b3cb2abc0eb4e5c9acd84f61d0af02200cad/src/main/java/infrastructure/domain/keycloak/RestKeycloakUserService.java?at=staging#RestKeycloakUserService.java-40,50,52,58,60,65,67,77,79,89:90,101:102)
+
+
+---
+
+# Summary
+
+
+DevOps:
+- create Keycloak as ecs-service [PR](https://bitbucket.org/skipthedishes/service_keycloak_tf/src/master/)
+  - Check on the keycloak.tf for more detail [file](https://bitbucket.org/skipthedishes/service_keycloak_tf/src/master/modules/keycloak/keycloak.tf)
+- create new endpoints(realms) for courier
+  [PR](https://bitbucket.org/skipthedishes/%7B579001cf-78c9-4a9d-a093-1cdf2a1461fa%7D/pull-requests/25)
+  - Create the `api-gate` with endpoints(intergation) such as
+    `/realms/Courier`, `"ANY
+    /realms/Courier/protocol/openid-connect/{proxy+}"`
+  - ?usuages of these endpoints refers to
+    [this](https://bitbucket.org/skipthedishes/react_restaurant_portal/src/76c247fd6e2e60523436f9ddfcba7d2b217af0ea/src/views/userprofile/sections/bankingsection/api/authenticatekeycloakonetimepasscode.ts?at=staging#authenticatekeycloakonetimepasscode.ts-13)
+- ?! API Courier should support JWT
+  [Ticket](https://justeattakeaway.atlassian.net/browse/CPI-86)
+  - Adding secret and role for using keycloak [PR](https://bitbucket.org/skipthedishes/%7Bbd80f086-7c2a-4f2f-8eea-303d70b5dac0%7D/pull-requests/1)
+  - backend-work (Support JWT on `api_courier`)
+  - backend-work (Support JWT on `api_application_tracking_system`
+- ??! Configure couerir client [PR](https://bitbucket.org/skipthedishes/%7Bb240eae4-1746-431c-a172-069ddc4303a1%7D/pull-requests/8)
+  - ?? `keycloak_openid_client` how do we use it [terraform ref](https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/openid_client)
+- Create realm for courier [PR](https://bitbucket.org/skipthedishes/%7Bb240eae4-1746-431c-a172-069ddc4303a1%7D/pull-requests/5)
+- [ ] to verify how to use the terraform to configurate the Keyclock
+  - [Ref](https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs)
+  - [Our work Done](https://bitbucket.org/skipthedishes/service_keycloak_tf/pull-requests/4)
+
+
+Front-end:
+- Connect with KeyCloak.
+  - [PR: to use KeyCloak(react_restaurant_portal)](https://bitbucket.org/skipthedishes/react_restaurant_portal/pull-requests/919)
+  - [some usuage to use the realm](https://bitbucket.org/skipthedishes/react_restaurant_portal/src/76c247fd6e2e60523436f9ddfcba7d2b217af0ea/src/views/userprofile/sections/bankingsection/api/authenticatekeycloakonetimepasscode.ts?at=staging#authenticatekeycloakonetimepasscode.ts-13)
+
+
+Back-end
+
+- Support JWT/Keycloak in `api_courier`
+  [PR](https://bitbucket.org/skipthedishes/%7B63b1720d-4653-42b2-b78b-3075084d732d%7D/pull-requests/737)
+- Support JTW/Keycloak on `api_application_tracking_system`[PR](https://bitbucket.org/skipthedishes/%7B23fcb9c7-2c25-45a0-9cfe-76f41b612ece%7D/pull-requests/23)
+- Work done on the main library to ignore header AppToken [PR](https://bitbucket.org/skipthedishes/%7B2ef63bf2-998d-4d2d-89c5-620cdac1855f%7D/pull-requests/167)

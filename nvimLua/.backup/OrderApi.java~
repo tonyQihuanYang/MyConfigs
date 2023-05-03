@@ -1,0 +1,84 @@
+package api;
+
+import api.dto.in.AcceptOrderDto;
+import api.dto.in.EditOrderDto;
+import api.dto.in.NewOrderDto;
+import api.dto.out.OrderDto;
+import api.dto.out.PaginatedResultDto;
+import api.dto.out.RestaurantRemoteResultDto;
+import ca.skipthedishes.domain.failures.EntityNotFoundException;
+import com.google.common.collect.Range;
+import domain.ReadContext;
+import domain.order.OrderQuery;
+import domain.order.OrderService;
+import domain.order.OrdersStatus;
+import domain.order.OrdersType;
+
+import java.time.Instant;
+import java.util.Optional;
+import java.util.Set;
+
+public class OrderApi {
+    public static final int LIMIT = 100;
+    private final OrderService orderService;
+
+    public OrderApi(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    public OrderDto create(NewOrderDto order, Instant now) {
+        return OrderDto.fromDomain(orderService.create(order.toDomain(now)));
+    }
+
+    public OrderDto update(EditOrderDto order, String id, Instant now) {
+        return OrderDto.fromDomain(orderService.update(order.toDomain(id, now)));
+    }
+
+    public void accept(AcceptOrderDto order, Instant now) {
+        orderService.accept(order.toDomain(now));
+    }
+
+    public OrderDto findById(String id) {
+        return orderService.findById(id, ReadContext.SYNC_NOT_REQUIRED)
+                           .map(OrderDto::fromDomain)
+                           .orElseThrow(() -> new EntityNotFoundException("Order does not exist"));
+    }
+
+    public PaginatedResultDto<OrderDto> findByQuery(Set<String> ids,
+                                                    Set<Integer> orderNumbers,
+                                                    Optional<OrdersStatus> status,
+                                                    Optional<OrdersType> type,
+                                                    Optional<String> restaurantId,
+                                                    Optional<Integer> limit,
+                                                    Optional<Integer> offset,
+                                                    Optional<Long> start,
+                                                    Optional<Long> end) {
+        OrderQuery query =
+                OrderQuery.builder()
+                          .ids(ids.isEmpty() ? Optional.empty() : Optional.of(ids))
+                          .orderNumbers(orderNumbers.isEmpty() ? Optional.empty() : Optional.of(orderNumbers))
+                          .status(status)
+                          .type(type)
+                          .restaurantId(restaurantId)
+                          .createdTimeRange(
+                                  rangeOf(start.map(Instant::ofEpochMilli), end.map(Instant::ofEpochMilli)))
+                          .limit(Optional.of(limit.orElse(LIMIT)))
+                          .offset(offset)
+                          .build();
+
+        return PaginatedResultDto.fromDomain(orderService.findByQuery(query), OrderDto::fromDomain);
+    }
+
+    public RestaurantRemoteResultDto findRestaurant(String id) {
+        return RestaurantRemoteResultDto.fromDomain(orderService.findRestaurant(id));
+    }
+
+    private Optional<Range<Instant>> rangeOf(Optional<Instant> start, Optional<Instant> end) {
+        if (start.isPresent() && end.isPresent()) {
+            return Optional.of(Range.closed(start.get(), end.get()));
+        }
+
+        return start.map(instant -> Optional.of(Range.atLeast(instant)))
+                    .orElseGet(() -> end.map(Range::atMost));
+    }
+}
