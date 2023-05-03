@@ -23,11 +23,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'tomasiser/vim-code-dark' " Color theme for vscode
 Plug 'sheerun/vim-polyglot' " syntax highlight
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Install fzf, `brew install ripgrep` so to use :rg to search word from files
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/airblade/vim-gitgutter' " Gitgutter highlight changed lines in flle
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown preview
-
+Plug 'vim-test/vim-test' " Test.vim consists of a core which provides an abstraction over running any kind of tests from the command-line
 call plug#end()
 
 """""""" Coc extensions to install
@@ -35,7 +35,7 @@ let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-rust-analyzer', 
 
 
 """""""" Key Bindings
-""" Lsp stuff
+""" <<Lsp stuff>>
 " Format current file (Prettier)
 nnoremap <leader>lp :Prettier<CR>
 " Format selected file (Prettier)
@@ -49,7 +49,15 @@ nmap <silent> <leader>lr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-""" Searching
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+""" <<Debug && Test>> 
+" use of vim-test
+nmap <silent> <leader>dt :TestNearest<CR> 
+nmap <silent> <leader>dT :TestFile<CR>
+
+""" <<Searching>>
 " Search file (fzf) 
 nnoremap <leader>sp :Files<CR> 
 " Find file on NerdTree
@@ -107,8 +115,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
