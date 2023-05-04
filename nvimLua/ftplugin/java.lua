@@ -1,8 +1,18 @@
---local home = os.getenv "HOME"
+local config = require("lsp.java").make_jdtls_config()
+require("jdtls").start_or_attach(config)
 
+-- SIMPLE WORKING EXAMPLE 1
+-- local config = {
+--     cmd = {'/opt/homebrew/Cellar/jdtls/1.23.0/bin/jdtls'},
+--     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+-- }
+--require('jdtls').start_or_attach(config)--
+
+
+-- WORKING EXAMPLE 2
+--local home = os.getenv "HOME"
 --local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 --local workspace_dir = '/Users/tony/Desktop/Git/Projects/' .. project_name
-
 --local config = {
 --  -- The command that starts the language server
 --  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -66,16 +76,5 @@
 --    bundles = {}
 --  },
 --}
-
-
----- local config = {
-----     cmd = {'/opt/homebrew/Cellar/jdtls/1.23.0/bin/jdtls'},
-----     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
----- }
 --require('jdtls').start_or_attach(config)--
---
---
--- ABOVE WAS TESTING CODE ! AND WORKING
---
-local config = require("lsp.java").make_jdtls_config()
-require("jdtls").start_or_attach(config)
+

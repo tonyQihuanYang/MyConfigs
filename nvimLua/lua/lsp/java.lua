@@ -1,11 +1,9 @@
 local home = os.getenv('HOME')
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/Users/tony/Desktop/Git/Projects/' .. project_name
 
 
 local DEBUGGER_LOCATION = home .. "/.local/share/nvim"
 local jdtls = require('jdtls')
-local root_markers = {'gradlew', 'mvnw', '.git', 'pom.xml'}
+local root_markers = { 'gradlew', 'mvnw', '.git', 'pom.xml' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
@@ -18,7 +16,7 @@ local on_attach = function(client, bufnr)
   jdtls.setup.add_commands()
 
   -- Default keymaps
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   require("lsp.defaults").on_attach(client, bufnr)
 
   -- Java extensions
@@ -31,7 +29,7 @@ local on_attach = function(client, bufnr)
 end
 
 local bundles = {
-vim.fn.glob(
+  vim.fn.glob(
     DEBUGGER_LOCATION .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
   ),
 }
@@ -87,8 +85,8 @@ local config = {
       },
       sources = {
         organizeImports = {
-          starThreshold = 9999;
-          staticStarThreshold = 9999;
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
         },
       },
       codeGeneration = {
@@ -100,24 +98,24 @@ local config = {
         },
         useBlocks = true,
       },
-      -- configuration = {
-      --   runtimes = {
-      --     -- {
-      --     --   name = "JavaSE-11",
-      --     --   path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
-      --     --   -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
-      --     -- },
-      --     -- {
-      --     --   name = "JavaSE-17",
-      --     --   path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java",
-      --     --   -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home",
-      --     -- }
-      --     -- {
-      --     --   name = "JavaSE-19",
-      --     --   path = home .. "/opt/homebrew/Cellar/openjdk/19.0.2/libexec/openjdk.jdk/Contents/Home"
-      --     -- },
-      --   }
-      -- }
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-11",
+            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
+            -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java",
+            -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home",
+          },
+          {
+            name = "JavaSE-19",
+            path = home .. "/opt/homebrew/Cellar/openjdk/19.0.2/libexec/openjdk.jdk/Contents/Home"
+          },
+        }
+      }
     }
   },
   cmd = {
@@ -135,18 +133,18 @@ local config = {
     -- '-javaagent:' .. home .. '/.local/share/eclipse/lombok.jar',
     -- 💀
     '-jar', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-         -- Must point to the                                                     Change this to
-         -- eclipse.jdt.ls installation                                           the actual version
+    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
+    -- Must point to the                                                     Change this to
+    -- eclipse.jdt.ls installation                                           the actual version
     -- 💀
-   '-configuration', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/config_mac',
-                    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-                    -- Must point to the                      Change to one of `linux`, `win` or `mac`
-                    -- eclipse.jdt.ls installation            Depending on your system.
+    '-configuration', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/config_mac',
+    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
+    -- Must point to the                      Change to one of `linux`, `win` or `mac`
+    -- eclipse.jdt.ls installation            Depending on your system.
 
     -- 💀
     -- See `data directory configuration` section in the README
-    '-data', workspace_dir
+    '-data', workspace_folder
   },
 }
 
@@ -154,4 +152,5 @@ local M = {}
 function M.make_jdtls_config()
   return config
 end
+
 return M

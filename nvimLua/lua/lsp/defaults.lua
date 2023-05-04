@@ -7,7 +7,7 @@ local M = {}
 M.on_attach = function(_, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   remap('n', 'gD', vim.lsp.buf.declaration, bufopts, "Go to declaration")
   remap('n', 'gd', vim.lsp.buf.definition, bufopts, "Go to definition")
   remap('n', 'gi', vim.lsp.buf.implementation, bufopts, "Go to implementation")
@@ -22,8 +22,8 @@ M.on_attach = function(_, bufnr)
   remap('n', '<leader>lrn', vim.lsp.buf.rename, bufopts, "Rename")
   remap('n', '<leader>lca', vim.lsp.buf.code_action, bufopts, "Code actions")
   vim.keymap.set('v', "<leader>lca", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
-    { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
-  remap('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
+    { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" })
+  remap('n', '<leader>lp', function() vim.lsp.buf.format { async = true } end, bufopts, "Format/Prettier file")
 
   require("which-key").register({
     l = {

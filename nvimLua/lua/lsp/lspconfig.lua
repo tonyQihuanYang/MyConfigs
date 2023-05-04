@@ -12,12 +12,12 @@ local lspconfig = require('lspconfig')
 
 -- Terraform
 -- brew install terraform-ls
-lspconfig.terraformls.setup{
+lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
- -- npm install -g typescript typescript-language-server
+-- npm install -g typescript typescript-language-server
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -31,32 +31,29 @@ lspconfig.tsserver.setup {
 
 
 
--- lspconfig['dartls'].setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
 
--- lspconfig['lua_ls'].setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   settings = {
---     Lua = {
---       runtime = {
---         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---         version = 'LuaJIT',
---       },
---       diagnostics = {
---         -- Get the language server to recognize the `vim` global
---         globals = {'vim'},
---       },
---       workspace = {
---         -- Make the server aware of Neovim runtime files
---         library = vim.api.nvim_get_runtime_file("", true),
---         checkThirdParty = false,
---       },
---     },
---   }
--- }
+-- brew install lua-language-server
+lspconfig['lua_ls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+    },
+  }
+}
 
 -- lspconfig['ltex'].setup {
 --   on_attach = on_attach,
@@ -99,7 +96,7 @@ lspconfig.tsserver.setup {
 --   capabilities = capabilities,
 -- }
 
--- lspconfig['tsserver'].setup {
+-- lspconfig['dartls'].setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities,
 -- }

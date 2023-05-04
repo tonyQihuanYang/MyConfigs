@@ -1,5 +1,9 @@
 # MyConfigs
 
+- `/nvim/*`   - old nvim config (deprecated)
+- `/nvimLua/` - new nvim config
+
+
 ## How to upload
 
 - In this repo directory
@@ -16,9 +20,16 @@ cp -r  ~/.config/nvim nvim
 
 ```bash
 pwd
-ln -s <currentRepoPath>/nvim ~/.config/nvim
+ln -s <currentRepoPath>/nvimLua ~/.config/nvim
 ln -s <currentRepoPath>/.ideavimrc ~/.ideavimrc
 ```
+
+### Lsp setup (Java) - for nvimLua
+```bash
+brew install jdtls
+sh ./install-java-debugger.sh
+```
+
 
 ### Ideavim (For Intellij)
 
