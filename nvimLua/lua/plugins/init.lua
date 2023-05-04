@@ -9,7 +9,7 @@ return {
   },
   'godlygeek/tabular',
   'itspriddle/vim-marked',
-  'ludovicchabant/vim-gutentags',
+  -- 'ludovicchabant/vim-gutentags',
   'mfussenegger/nvim-jdtls',
   'neovim/nvim-lspconfig',
   'nvim-lua/plenary.nvim',
@@ -29,17 +29,6 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
    },
---   {
---       "iamcco/markdown-preview.nvim",
---       run = function() vim.fn["mkdp#util#install"]() end
---   },
-  -- { "iamcco/markdown-preview.nvim",
-  --    run = "cd app && npm install",
-  --    setup = function()
-  --       vim.g.mkdp_filetypes = { "markdown" }
-  --    end,
-  --    ft = { "markdown" }
-  -- },
   {
     'folke/trouble.nvim',
     config = function()

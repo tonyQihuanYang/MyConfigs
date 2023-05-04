@@ -53,19 +53,19 @@ remap("n", "<leader>qc", "<Plug>ReplaceWithCurly", bufopts, "Curl quotes")
 remap("n", "<leader>qs", "<Plug>ReplaceWithStraight", bufopts, "Straighten quotes")
 
 -- telescope
-remap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", bufopts, "Find file")
-remap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", bufopts, "Grep")
+remap("n", "<leader>sp", "<cmd>Telescope find_files<cr>", bufopts, "Find file")
+remap("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", bufopts, "Grep")
 remap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", bufopts, "Find buffer")
-remap("n", "<leader>fm", "<cmd>Telescope marks<cr>", bufopts, "Find mark")
-remap("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", bufopts, "Find references (LSP)")
-remap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", bufopts, "Find symbols (LSP)")
-remap("n", "<leader>fc", "<cmd>Telescope lsp_incoming_calls<cr>", bufopts, "Find incoming calls (LSP)")
-remap("n", "<leader>fo", "<cmd>Telescope lsp_outgoing_calls<cr>", bufopts, "Find outgoing calls (LSP)")
-remap("n", "<leader>fi", "<cmd>Telescope lsp_implementations<cr>", bufopts, "Find implementations (LSP)")
-remap("n", "<leader>fx", "<cmd>Telescope diagnostics bufnr=0<cr>", bufopts, "Find errors (LSP)")
+remap("n", "<leader>sm", "<cmd>Telescope marks<cr>", bufopts, "Find mark")
+remap("n", "<leader>sr", "<cmd>Telescope lsp_references<cr>", bufopts, "Find references (LSP)")
+remap("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", bufopts, "Find symbols (LSP)")
+remap("n", "<leader>sc", "<cmd>Telescope lsp_incoming_calls<cr>", bufopts, "Find incoming calls (LSP)")
+remap("n", "<leader>so", "<cmd>Telescope lsp_outgoing_calls<cr>", bufopts, "Find outgoing calls (LSP)")
+remap("n", "<leader>si", "<cmd>Telescope lsp_implementations<cr>", bufopts, "Find implementations (LSP)")
+remap("n", "<leader>sx", "<cmd>Telescope diagnostics bufnr=0<cr>", bufopts, "Find errors (LSP)")
 require("which-key").register({
   f = {
-    name = "find",
+    name = "search",
   },
 }, { prefix = "<leader>" })
 

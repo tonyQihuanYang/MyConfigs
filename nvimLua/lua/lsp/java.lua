@@ -45,12 +45,12 @@ local config = {
   root_dir = root_dir,
   settings = {
     java = {
-      format = {
-        settings = {
-          url = "/.local/share/eclipse/eclipse-java-google-style.xml",
-          profile = "GoogleStyle",
-        },
-      },
+      -- format = {
+      --   settings = {
+      --     url = "/.local/share/eclipse/eclipse-java-google-style.xml",
+      --     profile = "GoogleStyle",
+      --   },
+      -- },
       signatureHelp = { enabled = true },
       contentProvider = { preferred = 'fernflower' },
       completion = {
@@ -90,12 +90,14 @@ local config = {
         runtimes = {
           {
             name = "JavaSE-11",
-            path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin",
+            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
+            -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
           },
---           {
---             name = "JavaSE-17",
---             path = home .. "/.asdf/installs/java/corretto-17.0.4.9.1",
---           },
+          {
+            name = "JavaSE-17",
+            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java",
+            -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home",
+          }
 --           {
 --             name = "JavaSE-1.8",
 --             path = home .. "/.asdf/installs/java/corretto-8.352.08.1"
@@ -106,7 +108,8 @@ local config = {
   },
   cmd = {
   'java',
---     home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin",
+    -- home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
+    -- "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -116,9 +119,9 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-javaagent:' .. home .. '/.local/share/eclipse/lombok.jar',
-    '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.18.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
-    '-configuration', '/opt/homebrew/Cellar/jdtls/1.18.0/libexec/config_mac',
+    -- '-javaagent:' .. home .. '/.local/share/eclipse/lombok.jar',
+    '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.23.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
+    '-configuration', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/config_mac',
     '-data', workspace_folder,
   },
 }

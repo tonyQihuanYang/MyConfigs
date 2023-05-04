@@ -12,12 +12,19 @@ local lspconfig = require('lspconfig')
 
 -- Terraform
 -- brew install terraform-ls
-lspconfig['terraformls'].setup{}
+lspconfig['terraformls'].setup{
+  on_attach = on_attach,
+}
+
+lspconfig.tsserver.setup {}
+
 -- vim.api.nvim_create_autocmd({"BufWritePre"}, {
 --   pattern = {"*.tf", "*.tfvars"},
 --   callback = vim.lsp.buf.format(),
 -- })
 -- End Terraform
+
+
 
 -- lspconfig['dartls'].setup {
 --   on_attach = on_attach,
