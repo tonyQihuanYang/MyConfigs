@@ -1,0 +1,62 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+) require"dap.ui.widgets".hover	nvimLua/lua/keymappings.lua	/^remap("n", "<leader>di", function() require"dap.ui.widgets".hover() end, bufopts, "Variables")$/;"	f
+<S-Space>	nvim/init.vim	/^inoremap <silent><expr> <S-Space> coc#refresh()$/;"	m
+<S-TAB>	nvim/init.vim	/^inoremap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<C-h>"$/;"	m
+<TAB>	nvim/init.vim	/^inoremap <silent><expr> <TAB>$/;"	m
+<Tab>	nvim/init.vim	/^inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"n$/;"	m
+<cr>	nvim/init.vim	/^inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()$/;"	m
+<leader>b	nvim/init.vim	/^nnoremap <leader>b :NERDTreeToggle<CR>$/;"	m
+<leader>dT	nvim/init.vim	/^nmap <silent> <leader>dT :TestFile<CR>$/;"	m
+<leader>dt	nvim/init.vim	/^nmap <silent> <leader>dt :TestNearest<CR> $/;"	m
+<leader>ld	nvim/init.vim	/^nmap <silent> <leader>ld <Plug>(coc-definition)$/;"	m
+<leader>lf	nvim/init.vim	/^nmap <leader>lf  <Plug>(coc-format-selected)$/;"	m
+<leader>li	nvim/init.vim	/^nmap <silent> <leader>li <Plug>(coc-implementation)$/;"	m
+<leader>lp	nvim/init.vim	/^nnoremap <leader>lp :Prettier<CR>$/;"	m
+<leader>lr	nvim/init.vim	/^nmap <silent> <leader>lr <Plug>(coc-references)$/;"	m
+<leader>lt	nvim/init.vim	/^nmap <silent> <leader>lt <Plug>(coc-type-definition)$/;"	m
+<leader>n	nvim/init.vim	/^nnoremap <leader>n :NERDTreeFocus<CR>$/;"	m
+<leader>sf	nvim/init.vim	/^nnoremap <leader>sf :NERDTreeFind<CR>$/;"	m
+<leader>sp	nvim/init.vim	/^nnoremap <leader>sp :Files<CR> $/;"	m
+K	nvim/init.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+M.make_jdtls_config	nvimLua/lua/lsp/java.lua	/^function M.make_jdtls_config()$/;"	f
+M.map	nvimLua/lua/me/util.lua	/^function M.map(mode, rhs, lhs, bufopts, desc)$/;"	f
+M.on_attach 	nvimLua/lua/lsp/defaults.lua	/^M.on_attach = function(_, bufnr)$/;"	f
+M.remap	nvimLua/lua/me/util.lua	/^function M.remap(mode, rhs, lhs, bufopts, desc)$/;"	f
+NERDTreeQuitOnOpen	nvim/init.vim	/^let NERDTreeQuitOnOpen = 0 " Close the tree after opening a file$/;"	v
+NERDTreeShowHidden	nvim/init.vim	/^let NERDTreeShowHidden=1 " Show hidden files, ex .env$/;"	v
+Prettier	nvim/init.vim	/^command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument$/;"	c
+VimUnDoå	nvimLua/.undo/%Users%tony%Desktop%Git%Projects%MyConfigs%nvimLua%lua%lsp%defaults.lua	/^VimUnDoå/;"	f
+['<S-Tab>'] 	nvimLua/lua/config/nvim-cmp.lua	/^    ['<S-Tab>'] = cmp.mapping(function(fallback)$/;"	f
+['<Tab>'] 	nvimLua/lua/config/nvim-cmp.lua	/^    ['<Tab>'] = cmp.mapping(function(fallback)$/;"	f
+[g	nvim/init.vim	/^nmap <silent> [g <Plug>(coc-diagnostic-prev)$/;"	m
+]g	nvim/init.vim	/^nmap <silent> ]g <Plug>(coc-diagnostic-next)$/;"	m
+build 	nvimLua/lua/plugins/init.lua	/^    build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,$/;"	f
+callback 	nvimLua/lua/config/nvim-tree.lua	/^    callback = function()$/;"	f
+callback 	nvimLua/lua/core/autocmds.lua	/^  callback = function()$/;"	f
+callback 	nvimLua/lua/plugins/init.lua	/^        callback = function()$/;"	f
+check_back_space	nvim/init.vim	/^function! s:check_back_space() abort$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^      config = function()$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function ()$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function() require('config\/nvim-cmp') end,$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function() require('config\/nvim-dap') end,$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function() require('config\/nvim-treesitter') end,$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function() require('config\/telescope') end,$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function() require('config\/wilder') end,$/;"	f
+config 	nvimLua/lua/plugins/init.lua	/^    config = function()$/;"	f
+expand 	nvimLua/lua/config/nvim-cmp.lua	/^    expand = function(args)$/;"	f
+g:NERDTreeDirArrowCollapsible	nvim/init.vim	/^let g:NERDTreeDirArrowCollapsible="~"$/;"	v
+g:NERDTreeDirArrowExpandable	nvim/init.vim	/^let g:NERDTreeDirArrowExpandable="+"$/;"	v
+g:NERDTreeGitStatusWithFlags	nvim/init.vim	/^let g:NERDTreeGitStatusWithFlags = 1 " Highlighted the editted files$/;"	v
+g:NERDTreeIgnore	nvim/init.vim	/^let g:NERDTreeIgnore = ['^node_modules$', '^DS_Store'] " Igonre the node_modules$/;"	v
+g:NERDTreeWinSize	nvim/init.vim	/^let g:NERDTreeWinSize = 40$/;"	v
+g:coc_global_extensions	nvim/init.vim	/^let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-rust-analyzer', 'coc-tsserver', 'coc-vetur', 'coc-java']$/;"	v
+local on_attach 	nvimLua/lua/lsp/java.lua	/^local on_attach = function(client, bufnr)$/;"	f
+mapleader	nvim/init.vim	/^let mapleader=' ' " map the leader key to space$/;"	v
+remap("n", "<leader>d?", function() local widgets	nvimLua/lua/keymappings.lua	/^remap("n", "<leader>d?", function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end, bufopts, "Scopes")$/;"	f
+remap('n', '<space>f', function() vim.lsp.buf.format { async 	nvimLua/lua/lsp/defaults.lua	/^  remap('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")$/;"	f
+show_documentation	nvim/init.vim	/^function! s:show_documentation()$/;"	f
