@@ -130,7 +130,9 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    -- '-javaagent:' .. home .. '/.local/share/eclipse/lombok.jar',
+    -- to enable this one, you have to install the lombok.jar in ~/.local/share/eclipse
+    --https://mvnrepository.com/artifact/org.projectlombok/lombok
+    '-javaagent:' .. home .. '/.local/share/eclipse/lombok-1.18.26.jar',
     -- 💀
     '-jar', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^

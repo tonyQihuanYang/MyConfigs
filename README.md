@@ -2,7 +2,11 @@
 
 - `/nvim/*`   - old nvim config (deprecated)
 - `/nvimLua/` - new nvim config
+- `./ideavimrc` - vim confit for Intellij
+- `./tmux.conf` - tmux config
 
+---
+# NVIM
 
 ## How to upload
 
@@ -30,11 +34,25 @@ brew install jdtls
 sh ./install-java-debugger.sh
 ```
 
-
-### Ideavim (For Intellij)
+---
+# Ideavim (For Intellij)
 
 #### Plugins to install on Intellij
-
 - IdeaVim
 - Which-Key
 - IdeaVim-Quickscope
+
+```bash
+pwd
+ln -s <currentRepoPath>/.ideavimrc ~/.ideavimrc
+ln -s <currentRepoPath>/.tmux.conf ~/. ~/.tmux.conf
+```
+
+---
+
+# tmux
+
+```bash
+pwd
+ln -s <currentrepopath>/.tmux.conf ~/.tmux.conf
+```
