@@ -100,20 +100,25 @@ local config = {
       },
       configuration = {
         runtimes = {
-          {
-            name = "JavaSE-11",
-            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
-            -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
-          },
+          -- {
+          --   name = "JavaSE-11",
+          --   path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
+          --   -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
+          -- },
           {
             name = "JavaSE-17",
-            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java",
-            -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home",
+            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home",
+            -- path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java",
           },
-          {
-            name = "JavaSE-19",
-            path = home .. "/opt/homebrew/Cellar/openjdk/19.0.2/libexec/openjdk.jdk/Contents/Home"
-          },
+          -- {
+          --   name = "JavaSE-17",
+          --   path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java",
+          --   -- path = home .. "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home",
+          -- },
+          -- {
+          --   name = "JavaSE-19",
+          --   path = home .. "/opt/homebrew/Cellar/openjdk/19.0.2/libexec/openjdk.jdk/Contents/Home"
+          -- },
         }
       }
     }
@@ -134,12 +139,15 @@ local config = {
     --https://mvnrepository.com/artifact/org.projectlombok/lombok
     '-javaagent:' .. home .. '/.local/share/eclipse/lombok-1.18.26.jar',
     -- 💀
-    '-jar', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    -- !!! Please verify this .jar
+    '-jar', '/opt/homebrew/Cellar/jdtls/1.33.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar',
+    --
+    --
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
     -- 💀
-    '-configuration', '/opt/homebrew/Cellar/jdtls/1.23.0/libexec/config_mac',
+    '-configuration', '/opt/homebrew/Cellar/jdtls/1.33.0/libexec/config_mac',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.

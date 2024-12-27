@@ -52,14 +52,14 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 "
-""" <<Debug && Test>> 
+""" <<Debug && Test>>
 " use of vim-test
-nmap <silent> <leader>dt :TestNearest<CR> 
+nmap <silent> <leader>dt :TestNearest<CR>
 nmap <silent> <leader>dT :TestFile<CR>
 
 """ <<Searching>>
-" Search file (fzf) 
-nnoremap <leader>sp :Files<CR> 
+" Search file (fzf)
+nnoremap <leader>sp :Files<CR>
 " Find file on NerdTree
 nnoremap <leader>sf :NERDTreeFind<CR>
 

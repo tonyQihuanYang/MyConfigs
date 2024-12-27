@@ -18,6 +18,19 @@
 cp -r  ~/.config/nvim nvim
 ```
 
+## Update Note
+- 2024-12-26
+ - Deprecated nvimLua
+ - Use nvimChad
+   - Delete the Symlink on `~/.config/nvim` by
+   ```
+   rm -rf ~/.config/nvim
+   rm -rf ~/.local/state/nvim
+   rm -rf ~/.local/share/nvim
+   ```
+
+
+
 ## How to use it
 
 - In your new machine, create the symlink from current directory to your config directory
