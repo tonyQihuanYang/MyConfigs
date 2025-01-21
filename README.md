@@ -19,6 +19,10 @@ cp -r  ~/.config/nvim nvim
 ```
 
 ## Update Note
+- 2025-01-21
+ - add terraform-ls
+ - update install steps
+
 - 2025-01-16
  - Add prettier and prettierd
  - `brew install prettierd`
@@ -45,7 +49,14 @@ pwd
 ln -s <currentRepoPath>/nvimLua ~/.config/nvim
 ln -s <currentRepoPath>/.ideavimrc ~/.ideavimrc
 ```
+---
+### nvimChad
+```
+-- Install langurage server for terraform
+brew install hashicorp/tap/terraform-ls
+```
 
+---
 ### Lsp setup (Java) - for nvimLua
 ```bash
 brew install jdtls
