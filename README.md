@@ -19,6 +19,11 @@ cp -r  ~/.config/nvim nvim
 ```
 
 ## Update Note
+- 2025-01-16
+ - Add prettier and prettierd
+ - `brew install prettierd`
+ - `MasonInstallAll`
+
 - 2024-12-26
  - Deprecated nvimLua
  - Use nvimChad
