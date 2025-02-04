@@ -12,7 +12,8 @@ return {
       require "configs.lspconfig"
     end,
   },
-
+  "mfussenegger/nvim-dap",
+  "mfussenegger/nvim-jdtls"
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
