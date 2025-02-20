@@ -38,14 +38,30 @@ map <leader>dq <Action>(HideActiveWindow)
 " map <leader>h <Action>(HideAllWindows)
 
 """ Searching
-map <leader>sf <Action>(Find)
-map <leader>sF <Action>(FindInPath)
-map <leader>sp <action>(GotoFile) "fzf
+map <leader>ff <Action>(Find)
+map <leader>fw <Action>(FindInPath)
+map <leader>fp <action>(GotoFile) "fzf
 " NerdTree search current file
-nnoremap <leader>sn :NERDTreeFind<CR>
+nnoremap <leader>fn :NERDTreeFind<CR>
 
 """ LSP stuffs
 map <leader>lp <Action>(ReformatCode)
+
+
+""" From Raf
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap <c-a> :action GotoAction<CR>
+
+nnoremap gu :action FindUsages<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gp :action GotoSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+
 
 """ Plugins  --------------------------------
 set NERDTree
