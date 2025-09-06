@@ -3,13 +3,15 @@ local DEBUGGER_LOCATION = home .. "/.local/share/nvim"
 local eclipse_path_to = '/opt/homebrew/Cellar/jdtls/1.44.0'
 
 local eclipse_path =
-'/opt/homebrew/Cellar/jdtls/1.44.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
+-- '/opt/homebrew/Cellar/jdtls/1.44.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
+'/opt/homebrew/Cellar/jdtls/1.45.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.1000.v20250131-0606.jar'
+--
 -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
 -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
 -- Must point to the                                                     Change this to
 -- eclipse.jdt.ls installation                                           the actual version
 
-local config_system = '/opt/homebrew/Cellar/jdtls/1.44.0/libexec/config_mac'
+local config_system = '/opt/homebrew/Cellar/jdtls/1.45.0/libexec/config_mac'
 -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
 -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
 -- Must point to the                      Change to one of `linux`, `win` or `mac`

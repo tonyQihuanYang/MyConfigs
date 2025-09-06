@@ -10,6 +10,13 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
+if vim.g.vscode then
+    -- VSCode extension
+else
+    -- ordinary Neovim
+end
+
 vim.opt.rtp:prepend(lazypath)
 
 require('settings')
