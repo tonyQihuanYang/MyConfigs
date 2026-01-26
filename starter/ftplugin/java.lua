@@ -1,17 +1,16 @@
 local home = os.getenv('HOME')
 local DEBUGGER_LOCATION = home .. "/.local/share/nvim"
-local eclipse_path_to = '/opt/homebrew/Cellar/jdtls/1.44.0'
+local eclipse_path_to = '/opt/homebrew/Cellar/jdtls/1.43.0'
 
 local eclipse_path =
--- '/opt/homebrew/Cellar/jdtls/1.44.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
-'/opt/homebrew/Cellar/jdtls/1.45.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.1000.v20250131-0606.jar'
+'/opt/homebrew/Cellar/jdtls/1.43.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
 --
 -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
 -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
 -- Must point to the                                                     Change this to
 -- eclipse.jdt.ls installation                                           the actual version
 
-local config_system = '/opt/homebrew/Cellar/jdtls/1.45.0/libexec/config_mac'
+local config_system = '/opt/homebrew/Cellar/jdtls/1.43.0/libexec/config_mac'
 -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
 -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
 -- Must point to the                      Change to one of `linux`, `win` or `mac`
@@ -75,7 +74,8 @@ local config = {
 
     -- 💀
     -- 'java', -- or '/path/to/java21_or_newer/bin/java'
-    '/opt/homebrew/Cellar/openjdk@21/21.0.3/bin/java',
+    -- '/opt/homebrew/Cellar/openjdk@21/21.0.8/bin/java',
+    'java',
 
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
@@ -179,18 +179,18 @@ local config = {
         -- And search for `interface RuntimeOption`
         -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
         runtimes = {
-          {
-            name = "JavaSE-11",
-            path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home"
-          },
+          -- {
+          --   name = "JavaSE-11",
+          --   path = "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home"
+          -- },
           {
             name = "JavaSE-17",
-            path = "/opt/homebrew/Cellar/openjdk@17/17.0.14/libexec/openjdk.jdk/Contents/Home"
+            path = "/opt/homebrew/Cellar/openjdk@17/17.0.13/libexec/openjdk.jdk/Contents/Home"
             -- path = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
           },
           {
             name = "JavaSE-21",
-            path = "/opt/homebrew/Cellar/openjdk@21/21.0.3/libexec/openjdk.jdk/Contents/Home"
+            path = "/opt/homebrew/Cellar/openjdk@21/21.0.8/libexec/openjdk.jdk/Contents/Home"
             -- path ="/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home"
           },
         }
