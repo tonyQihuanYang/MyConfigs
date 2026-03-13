@@ -36,3 +36,36 @@ mkdir -p ~/.config/ghostty
 curl -sL https://gist.githubusercontent.com/zhangchitc/7dead7c1b517390e061e07759ed80277/raw/ > ~/.config/ghostty/config
 # Then adjust background-opacity if needed
 ```
+
+## Yazi (Terminal File Manager)
+
+### Install
+```bash
+brew install yazi ffmpegthumbnailer poppler fd ripgrep jq
+```
+
+### Shell Wrapper (add to .zshrc)
+```bash
+# Yazi file manager - cd to directory on quit
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+```
+
+### Key Bindings
+| Key | Action |
+|---|---|
+| j/k | Move up/down |
+| l | Enter directory / open file |
+| h | Go back |
+| Space | Select files |
+| d | Delete |
+| r | Rename |
+| p | Paste |
+| y | Yank (copy) |
+| q | Quit |
